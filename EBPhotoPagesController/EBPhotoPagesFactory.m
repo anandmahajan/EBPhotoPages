@@ -211,10 +211,10 @@
 {
     UIBarButtonItem *lowerFlexibleSpace = [self flexibleSpaceItemForPhotoPagesController:controller];
     UIBarButtonItem *toggleTagsBarButtonItem = [controller toggleTagsBarButtonItem];
-    UIBarButtonItem *activityBarButtonItem = [controller activityBarButtonItem];
-    UIBarButtonItem *miscBarButtonItem = [controller miscBarButtonItem];
-    UIBarButtonItem *commentsBarButtonItem = [controller commentsBarButtonItem];
-    NSArray *items = @[activityBarButtonItem, toggleTagsBarButtonItem, miscBarButtonItem, lowerFlexibleSpace, commentsBarButtonItem, ];
+    //UIBarButtonItem *activityBarButtonItem = [controller activityBarButtonItem];
+    //UIBarButtonItem *miscBarButtonItem = [controller miscBarButtonItem];
+    //UIBarButtonItem *commentsBarButtonItem = [controller commentsBarButtonItem];
+    NSArray *items = @[/*activityBarButtonItem,*/ toggleTagsBarButtonItem, /*miscBarButtonItem,*/ lowerFlexibleSpace/*, commentsBarButtonItem,*/ ];
     return items;
 }
 

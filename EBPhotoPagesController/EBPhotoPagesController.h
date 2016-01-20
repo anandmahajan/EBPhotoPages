@@ -117,7 +117,7 @@
 - (void)didSelectTagDoneButton:(id)sender;
 - (void)didSelectToggleTagsButton:(id)sender;
 
-
+-(void)enableTagMode;
 
 @end
 

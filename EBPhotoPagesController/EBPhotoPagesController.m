@@ -65,6 +65,26 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
 
 @implementation EBPhotoPagesController
 
+#pragma mark - Methods Added by Rishi For More Customization
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+
+-(void)enableTagMode
+{
+    NSDictionary *targetInfo = @{kActionSheetTargetKey:
+                                     [self photoViewControllerWithIndex:0]};
+    [self setActionSheetTargetInfo:targetInfo];
+    UIActionSheet * actionSheet  = [[UIActionSheet alloc] initWithTitle:@"" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:@"" otherButtonTitles:@"", nil];
+    actionSheet.tag=[self.photoPagesFactory tagIdForPhotoActionSheet];
+    [self photoActionSheet:actionSheet didDismissWithButtonAtIndex:0];
+}
+
+#pragma mark - END
+
 
 - (id)init
 {
@@ -1428,9 +1448,9 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
     EBPhotoViewController *photoViewController = self.actionSheetTargetInfo[kActionSheetTargetKey];
     NSAssert([photoViewController isKindOfClass:[EBPhotoViewController class]], @"Expected object with kActionSheetTargetKey to be EBPhotoViewController kind of class.");
     
-    if(buttonIndex == actionSheet.destructiveButtonIndex){
+   /* if(buttonIndex == actionSheet.destructiveButtonIndex){
         [self deletePhotoAtIndex:photoViewController.photoIndex];
-    }
+    }*/
     
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     [self performActionOnPhotoAtIndex:photoViewController.photoIndex
@@ -1445,7 +1465,7 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
 - (void)performActionOnPhotoAtIndex:(NSInteger)index forButtonTitle:(NSString *)buttonTitle
 {
     
-    if([buttonTitle isEqualToString:[self.photoPagesFactory actionSheetReportButtonTitle]]){
+    /*if([buttonTitle isEqualToString:[self.photoPagesFactory actionSheetReportButtonTitle]]){
         NSLog(@"Reporting photo.");
         if([self.photosDataSource
            respondsToSelector:@selector(photoPagesController:didReportPhotoAtIndex:)]){
@@ -1456,8 +1476,8 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
         [self didSelectTagButton:self];
     } else {
         NSLog(@"Unknown action sheet command.");
-    }
-    
+    }*/
+    [self didSelectTagButton:self];
 }
 
 - (void)deletePhotoAtIndex:(NSInteger)index
