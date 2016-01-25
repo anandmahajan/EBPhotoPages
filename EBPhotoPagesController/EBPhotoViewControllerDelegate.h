@@ -35,6 +35,9 @@
 - (void)photoViewController:(EBPhotoViewController *)controller
         didSelectTagPopover:(EBTagPopover *)tagPopover;
 
+- (void)photoViewController:(EBPhotoViewController *)controller
+        didDoneTagPopover:(EBTagPopover *)tagPopover;
+
 - (EBTagPopover *)photoViewController:(EBPhotoViewController *)controller
                       tagPopoverForTag:(id<EBPhotoTagProtocol>)tag;
 

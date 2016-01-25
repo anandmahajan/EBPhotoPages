@@ -1588,6 +1588,11 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
                              inPhotoAtIndex:controller.photoIndex];
 }
 
+- (void)photoViewController:(EBPhotoViewController *)controller
+                       didDoneTagPopover:(EBTagPopover *)tagPopover
+{
+     [self.currentState photoPagesController:self didSelectDoneButton:nil];
+}
 
 - (BOOL)photoViewController:(EBPhotoViewController *)controller
  shouldConfigureCommentCell:(EBCommentCell *)cell

@@ -816,11 +816,9 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
                               @"taggedPhotoIndex" : [NSNumber numberWithInteger:self.photoIndex]};
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidCreateTagNotification object:self userInfo:tagInfo];
-//    EBCommentsView *commentsView = [self.delegate commentsViewForPhotoViewController:self];
-//    
-//    [self.view addSubview:commentsView];
-//    //[self setCommentsView:commentsView];
-//    [commentsView setNeedsLayout];
+    
+    [self.delegate photoViewController:self didDoneTagPopover:tagPopover];
+    
 
 }
 
