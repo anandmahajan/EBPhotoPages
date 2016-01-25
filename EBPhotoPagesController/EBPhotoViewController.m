@@ -24,6 +24,7 @@
 #import "EBCommentCell.h"
 #import "EBCommentsTableView.h"
 
+
 static NSString *TagPopoversKeyPath = @"tagPopovers";
 
 @interface EBPhotoViewController ()
@@ -804,6 +805,23 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
                               @"taggedPhotoIndex" : [NSNumber numberWithInteger:self.photoIndex]};
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidCreateTagNotification object:self userInfo:tagInfo];
+}
+
+- (void)tagPopoverDidStartEditing:(EBTagPopover *)tagPopover
+{
+    NSLog(@"tagPopoverDidStartEditing");
+    tagPopover.text = @"Test 123";
+    
+    NSDictionary *tagInfo = @{@"tagPopover": tagPopover,
+                              @"taggedPhotoIndex" : [NSNumber numberWithInteger:self.photoIndex]};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidCreateTagNotification object:self userInfo:tagInfo];
+//    EBCommentsView *commentsView = [self.delegate commentsViewForPhotoViewController:self];
+//    
+//    [self.view addSubview:commentsView];
+//    //[self setCommentsView:commentsView];
+//    [commentsView setNeedsLayout];
+
 }
 
 - (void)tagPopover:(EBTagPopover *)tagPopover

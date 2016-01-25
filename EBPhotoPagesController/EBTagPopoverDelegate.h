@@ -19,6 +19,9 @@
 
 - (void)tagPopoverDidEndEditing:(EBTagPopover *)tagPopover;
 
+- (void)tagPopoverDidStartEditing:(EBTagPopover *)tagPopover;
+
+
 
 - (void)tagPopover:(EBTagPopover *)tagPopover
     didReceiveSingleTap:(UITapGestureRecognizer *)singleTap;
