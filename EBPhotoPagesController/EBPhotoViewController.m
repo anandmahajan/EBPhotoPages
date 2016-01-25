@@ -817,7 +817,7 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidCreateTagNotification object:self userInfo:tagInfo];
     
-    [self.delegate photoViewController:self didDoneTagPopover:tagPopover];
+    //[self.delegate photoViewController:self didDoneTagPopover:tagPopover];
     
 
 }

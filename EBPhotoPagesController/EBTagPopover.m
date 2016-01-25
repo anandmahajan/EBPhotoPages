@@ -400,6 +400,7 @@
         [textField setTextAlignment:NSTextAlignmentLeft];
         [self resizeTextField];
          [self.delegate tagPopoverDidStartEditing:self];
+        [self resignFirstResponder];
     }
 }
 
