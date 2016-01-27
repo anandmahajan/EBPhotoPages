@@ -172,7 +172,7 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
 
 - (void)initialize
 {
-    [self setTagsHidden:YES];
+    [self setTagsHidden:NO];
     [self setDelegate:self]; //UIPageViewController
     [self setDataSource:self]; //UIPageViewController
     [self setHidesBottomBarWhenPushed:YES];
