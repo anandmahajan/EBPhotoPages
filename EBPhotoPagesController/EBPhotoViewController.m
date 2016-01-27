@@ -809,17 +809,7 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
 
 - (void)tagPopoverDidStartEditing:(EBTagPopover *)tagPopover
 {
-    NSLog(@"tagPopoverDidStartEditing");
-    tagPopover.text = @"Test 123";
-    
-    NSDictionary *tagInfo = @{@"tagPopover": tagPopover,
-                              @"taggedPhotoIndex" : [NSNumber numberWithInteger:self.photoIndex]};
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidCreateTagNotification object:self userInfo:tagInfo];
-    
-    //[self.delegate photoViewController:self didDoneTagPopover:tagPopover];
-    
-
+    [self.delegate photoViewController:self showSearchPeople:tagPopover];
 }
 
 - (void)tagPopover:(EBTagPopover *)tagPopover

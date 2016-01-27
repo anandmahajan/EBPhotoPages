@@ -42,7 +42,7 @@
 //Called once the photo pages controller has dismissed
 - (void)photoPagesControllerDidDismiss:(EBPhotoPagesController *)photoPagesController;
 
-
+- (void)showSearchUserpopUp:(EBPhotoPagesController *)photoPagesController forTagPopover:(EBTagPopover*)tagPopover;
 
 
 @end

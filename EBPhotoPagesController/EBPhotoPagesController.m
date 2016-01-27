@@ -83,6 +83,23 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
     [self photoActionSheet:actionSheet didDismissWithButtonAtIndex:0];
 }
 
+-(void)photoViewControllerDeletePopupOverWithNotification:(NSNotification *)aNotification
+{
+    EBTagPopover *tag = aNotification.userInfo[@"tagPopover"];
+    NSNumber *taggedPhotoIndex = aNotification.userInfo[@"taggedPhotoIndex"];
+    
+    [self deleteTagPopover:tag inPhotoAtIndex:taggedPhotoIndex.integerValue];
+    
+    [self.currentState photoPagesController:self didSelectCancelButton:nil];
+}
+
+- (void)photoViewController:(EBPhotoViewController *)controller showSearchPeople:(EBTagPopover *)tagPopover
+{
+    if([self.photoPagesDelegate respondsToSelector:
+        @selector(photoPagesControllerDidDismiss:)]){
+        [self.photoPagesDelegate showSearchUserpopUp:self forTagPopover:tagPopover];
+    }
+}
 #pragma mark - END
 
 
@@ -598,6 +615,9 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
                                              selector:@selector(photoViewControllerDidEndCommentingWithNotification:) name:EBPhotoViewControllerDidEndCommentingNotification
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(photoViewControllerDeletePopupOverWithNotification:) name:@"PhotoPagesControllerDeleteTag"
+                                               object:nil];
     
     [self.captionView addObserver:self
                        forKeyPath:ContentOffsetKeyPath
@@ -1178,8 +1198,8 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
 
 - (void)didLoadNewCommentsWithNotification:(NSNotification *)aNotification
 {
-    NSAssert([aNotification.object isKindOfClass:[EBPhotoViewController class]],
-             @"Expected notification from EBPhotoViewController kind of class.");
+    //NSAssert([aNotification.object isKindOfClass:[EBPhotoViewController class]],
+    //         @"Expected notification from EBPhotoViewController kind of class.");
     EBPhotoViewController *photoViewController = aNotification.object;
     
     if(photoViewController.photoIndex == self.currentPhotoIndex){

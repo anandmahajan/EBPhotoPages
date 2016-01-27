@@ -22,7 +22,7 @@
 @class EBTagPopover;
 @class EBCommentsView;
 @protocol EBPhotoViewControllerDelegate <NSObject>
-
+@optional
 - (void)photoViewController:(EBPhotoViewController *)controller
           didPostNewComment:(NSString *)comment;
 
@@ -37,6 +37,9 @@
 
 - (void)photoViewController:(EBPhotoViewController *)controller
         didDoneTagPopover:(EBTagPopover *)tagPopover;
+
+- (void)photoViewController:(EBPhotoViewController *)controller
+           showSearchPeople:(EBTagPopover *)tagPopover;
 
 - (EBTagPopover *)photoViewController:(EBPhotoViewController *)controller
                       tagPopoverForTag:(id<EBPhotoTagProtocol>)tag;
