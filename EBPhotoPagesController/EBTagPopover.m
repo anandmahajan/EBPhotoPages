@@ -410,7 +410,7 @@
         [textField setTextAlignment:NSTextAlignmentCenter];
         [self resizeTextField];
         if([self isCanceled] == NO){
-            [self.delegate tagPopoverDidEndEditing:self];
+            //[self.delegate tagPopoverDidEndEditing:self];
         }
         [self resignFirstResponder];
     }

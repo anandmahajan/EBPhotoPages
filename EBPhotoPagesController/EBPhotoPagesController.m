@@ -1209,8 +1209,8 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
 
 - (void)photoViewControllerDidCreateNewTagWithNotification:(NSNotification *)aNotification
 {
-    NSAssert([aNotification.object isKindOfClass:[EBPhotoViewController class]],
-             @"Expected notification from EBPhotoViewController kind of class.");
+    //NSAssert([aNotification.object isKindOfClass:[EBPhotoViewController class]],
+     //        @"Expected notification from EBPhotoViewController kind of class.");
     
     EBTagPopover *tag = aNotification.userInfo[@"tagPopover"];
     NSNumber *taggedPhotoIndex = aNotification.userInfo[@"taggedPhotoIndex"];
