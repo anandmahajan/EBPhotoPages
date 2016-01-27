@@ -26,7 +26,7 @@
 @property (assign) CGSize minimumTextFieldSize;
 @property (assign) CGSize minimumTextFieldSizeWhileEditing;
 @property (assign) NSInteger maximumTextLength; //set to 0 for no limit on a tag's length.
-
+@property (strong) NSString *userId;
 
 - (id)initWithDelegate:(id<EBTagPopoverDelegate>)delegate;
 - (id)initWithTag:(id<EBPhotoTagProtocol>)aTag;

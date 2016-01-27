@@ -285,11 +285,15 @@
                                                              forPhotoAtIndex:
                                                              tagInfo:)]){
         
+        NSDictionary *tagInfo = @{@"tagPopover": tagPopover,
+                                  @"taggedPhotoIndex" : [NSNumber numberWithInteger:index]                                  };
+
+        
         [datasource  photoPagesController:controller
                     didAddNewTagAtPoint:tagPopover.normalizedArrowPoint
                                withText:tagPopover.text
                         forPhotoAtIndex:index
-                                tagInfo:nil];
+                                tagInfo:tagInfo];
     }
     
     //[tagPopover removeFromSuperview];
